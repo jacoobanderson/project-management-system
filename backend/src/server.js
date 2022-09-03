@@ -2,7 +2,7 @@ import express from 'express'
 import helmet from 'helmet'
 import logger from 'morgan'
 import { connectDB } from './config/mongoose.js'
-// import { router } from './routes/router.js'
+import { router } from './routes/router.js'
 import cookieParser from 'cookie-parser'
 
 
@@ -27,7 +27,7 @@ try {
     next()
   })
 
-//   app.use('/', router)
+  app.use('/', router)
 
   // Error handler.
   app.use(function (err, req, res, next) {
