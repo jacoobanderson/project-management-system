@@ -5,7 +5,7 @@ import "./App.css"
 
 function App() {
   return (
-    <div className='App'>
+    <div className='w-full h-full'>
       <BrowserRouter>
           <Routes>
             <Route path='/login' element={<Login />} />
