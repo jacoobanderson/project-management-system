@@ -14,10 +14,9 @@ type Props = {
  * @returns {React.ReactElement} The element.
  */
 const PrivateRoute = ({ children }: Props) => {
-  const [isAuth, setIsAuth] = useState(Boolean)
+  const [isAuth, setIsAuth] = useState<Boolean>()
   const { id } = useParams()
   const { setUser } = useContext(UserContext)
-  // const { setUsers } = useContext(UserFeed)
 
   useEffect(() => {
     /**
@@ -27,7 +26,6 @@ const PrivateRoute = ({ children }: Props) => {
       const auth = await verifyUser()
       setIsAuth(auth)
     }
-
     // getUsers()
     checkAuth()
   }, [])
@@ -37,7 +35,7 @@ const PrivateRoute = ({ children }: Props) => {
    */
   async function verifyUser () {
     const response = await fetch(
-      process.env.REACT_APP_ACCOUNT_API + `/${id}/dashboard`,
+      process.env.REACT_APP_ACCOUNT_API + `/${id}/user`,
       {
         method: 'GET',
         mode: 'cors',
@@ -50,6 +48,7 @@ const PrivateRoute = ({ children }: Props) => {
 
   // Checks if the user is authorized and if so, renders the private overview else navigates the user back to the login page.
   if (isAuth === undefined) return null
+  console.log(isAuth)
   return isAuth ? children : <Navigate to='/login' />
 }
 

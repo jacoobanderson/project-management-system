@@ -4,6 +4,7 @@ import { UserContext } from "./hooks/UserContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import PrivateRoute from "./pages/PrivateRoute"
+import Dashboard from "./pages/Dashboard"
 import "./App.css"
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
             path='/:id/dashboard'
             element={
               <PrivateRoute>
-                {/* <Dashboard /> */}
+                <Dashboard />
               </PrivateRoute>
             }
           />

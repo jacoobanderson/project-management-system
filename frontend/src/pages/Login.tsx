@@ -16,7 +16,7 @@ const Login = () => {
     console.log(formData)
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + "/login",
+        process.env.REACT_APP_ACCOUNT_API + "/auth/login",
         {
           method: "POST",
           mode: "cors",
