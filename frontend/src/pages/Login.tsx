@@ -67,7 +67,7 @@ const Login = () => {
               onChange={handleChange}
               type='password'
               name='password'
-              placeholder='Password'
+              placeholder='Enter your password'
               required
             />
           </div>
@@ -89,14 +89,14 @@ const Login = () => {
             >
               Sign in
             </button>
-            <button className='mt-4 p-1 border-2 border-gray-200 rounded-lg text-center'>
+            <div className='mt-4 p-1 border-2 border-gray-200 rounded-lg text-center'>
               <img
                 className='inline-block w-10 h-10 mr-1'
                 src='https://pngimg.com/uploads/google/google_PNG19635.png'
                 alt='google logo'
               />
               Sign in with Google
-            </button>
+            </div>
           </div>
         </form>
         <p className='mt-6 text-center'>
