@@ -40,6 +40,7 @@ export class AccountController {
           id: user.id
         })
     } catch (error) {
+      console.log(error)
       const err = createError(401)
       next(err)
     }
