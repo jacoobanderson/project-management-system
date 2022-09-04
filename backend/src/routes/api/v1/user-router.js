@@ -23,6 +23,7 @@ const verifyJWT = (req, res, next) => {
     }
     next()
   } catch (error) {
+    console.log(error)
     const err = createError(401)
     next(err)
   }

@@ -31,7 +31,6 @@ export class UserController {
     try {
       const user = await User.findById(req.params.id)
       const data = this.createUserDataObject(await user)
-
       res.status(200).json(data)
     } catch (error) {
       next(error)
