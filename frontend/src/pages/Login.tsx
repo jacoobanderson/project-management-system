@@ -29,7 +29,7 @@ const Login = () => {
       )
       const res = await response.json()
       if (response.status === 201) {
-        navigate(`/${res.id}/find`)
+        navigate(`/${res.id}/dashboard`)
       } else {
         console.log(res.status)
       }
