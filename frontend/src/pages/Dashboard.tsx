@@ -1,10 +1,10 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
+import Navbar from '../components/Navbar'
 
 const Dashboard = () => {
   return (
-    <div className='h-full w-full'>
-        <Sidebar />
+    <div className='h-full w-full bg-gray-200'>
+        <Navbar />
     </div>
   )
 }

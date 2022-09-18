@@ -15,8 +15,8 @@ export class UserController {
     return {
       id: type.id,
       username: type.username,
-      firstname: type.firstName,
-      lastname: type.lastName,
+      firstName: type.firstName,
+      lastName: type.lastName,
     }
   }
 
