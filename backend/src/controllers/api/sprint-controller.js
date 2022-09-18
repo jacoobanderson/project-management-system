@@ -14,9 +14,10 @@ export class SprintController {
    */
   async getSprints(req, res, next) {
     try {
-      const sprints = await Sprint.find()
+      const sprints = await Sprint.find({userId: req.params.id})
       res.status(200).json(sprints)
     } catch (error) {
+        console.log(error)
       next(error)
     }
   }
