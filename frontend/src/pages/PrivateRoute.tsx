@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, ReactComponentElement } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { UserContext } from '../hooks/UserContext'
+import { UserContext } from '../context/UserContext'
 
 type Props = {
     children: JSX.Element
@@ -48,7 +48,6 @@ const PrivateRoute = ({ children }: Props) => {
 
   // Checks if the user is authorized and if so, renders the private overview else navigates the user back to the login page.
   if (isAuth === undefined) return null
-  console.log(isAuth)
   return isAuth ? children : <Navigate to='/login' />
 }
 

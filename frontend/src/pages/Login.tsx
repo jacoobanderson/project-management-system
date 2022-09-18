@@ -13,7 +13,6 @@ const Login = () => {
   }
   const handleSubmit = async (event: any) => {
     event.preventDefault()
-    console.log(formData)
     try {
       const response = await fetch(
         process.env.REACT_APP_ACCOUNT_API + "/auth/login",

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { UserContext } from "./hooks/UserContext"
+import { UserContext } from "./context/UserContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import PrivateRoute from "./pages/PrivateRoute"
@@ -8,7 +8,13 @@ import Dashboard from "./pages/Dashboard"
 import "./App.css"
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState<any>({
+    id: '',
+    firstName: '',
+    lastName: '',
+    username: ''
+  })
+  
   return (
     <div className='w-full h-full'>
       <BrowserRouter>
