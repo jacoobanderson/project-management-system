@@ -1,10 +1,9 @@
-import bcrypt from 'bcrypt'
 import mongoose from 'mongoose'
-import validator from 'validator'
-
-const { isEmail } = validator
 
 const schema = new mongoose.Schema({
+  userId: {
+    type: String
+  },
   task: {
     type: String
   },
@@ -26,4 +25,4 @@ const schema = new mongoose.Schema({
 })
 
 
-export const User = mongoose.model('User', schema)
+export const Sprint = mongoose.model('Sprint', schema)

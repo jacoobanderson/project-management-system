@@ -1,25 +1,10 @@
-import createError from 'http-errors'
-import { User } from '../../models/user.js'
+import createError from "http-errors"
+import { Sprint } from "../../models/sprint.js"
 
 /**
  * Encapsulates a controller.
  */
 export class SprintController {
-  /**
-   * Creates an object depending on type.
-   *
-   * @param {object} type type of data used.
-   * @returns {object} Object of user data.
-   */
-  createUserDataObject (type) {
-    return {
-      id: type.id,
-      username: type.username,
-      firstName: type.firstName,
-      lastName: type.lastName,
-    }
-  }
-
   /**
    * Gets user data.
    *
@@ -27,14 +12,30 @@ export class SprintController {
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  async getUserData (req, res, next) {
+  async getSprints(req, res, next) {
     try {
-      const user = await User.findById(req.params.id)
-      const data = this.createUserDataObject(await user)
-      res.status(200).json(data)
+      const sprints = await Sprint.find()
+      res.status(200).json(sprints)
     } catch (error) {
       next(error)
     }
   }
 
+  async createSprint(req, res, next) {
+    try {
+      const sprint = new Sprint({
+        userId: req.params.id,
+        task: req.body.task,
+        requirement: req.body.requirement,
+        testStatus: req.body.testStatus,
+        estimatedTime: req.body.estimatedTime,
+        actualTime: req.body.actualTime,
+        iteration: req.body.iteration,
+      })
+      await sprint.save()
+      res.status(201).json({success: 'Sprint has been created.'})
+    } catch (error) {
+        next(error)
+    }
+  }
 }
